@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-projekt';
+
+  constructor() {
+    if (this.title) {
+      console.log('mam title');
+    } else {
+      console.log('nie mam title');
+    }
+  }
 }
