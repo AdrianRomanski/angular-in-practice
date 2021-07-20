@@ -1,1 +1,7 @@
-<p>task-list-item works!</p>
+<p class="task-name">{{message}}</p>
+
+<input type="text" class="task-name-input" [(ngModel)]="message" #taskName="ngModel" required>
+
+<div class="error" *ngIf="taskName.hasError('required')">Field canot be empty</div>
+
+<button class="edit-button" (click)="edit()">Edit</button>

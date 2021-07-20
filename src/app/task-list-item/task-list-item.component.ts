@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list-item.component.scss']
 })
 export class TaskListItemComponent implements OnInit {
+  message = 'Message Works';
 
+  editMode = false;
+
+  edit(): void {
+    this.editMode = true;
+  }
   constructor() { }
-
   ngOnInit(): void {
   }
-
 }
