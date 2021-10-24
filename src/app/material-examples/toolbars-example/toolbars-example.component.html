@@ -1,0 +1,108 @@
+<div class="examples-container">
+  <p>
+    works
+  </p>
+
+  <mat-toolbar color="primary" class="example">
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="toolbar-title">Example Toolbar</span>
+    <button mat-icon-button>
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button (click)="showNotif = !showNotif">
+      <mat-icon [matBadge]="showNotif ? 2 : ''" matBadgeColor="primary">chat</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Menu"
+            [matMenuTriggerFor]="extrasMenu"
+            [matMenuTriggerData]="{
+            user: {name: 'alice'}
+            }"
+            #menuTrigger="matMenuTrigger"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #extrasMenu="matMenu">
+      <ng-template matMenuContent let-currentUser="user">
+        <button mat-menu-item [matMenuTriggerFor]="settingsMenu">
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+        </button>
+        <button mat-menu-item *ngIf="currentUser">
+          <mat-icon>person</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </ng-template>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-menu #settingsMenu="matMenu">
+    <ng-template matMenuContent>
+      <button mat-menu-item>
+        <mat-icon>Permissions</mat-icon>
+        <span>Help</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>Notification</mat-icon>
+        <span>Help</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+
+  <mat-toolbar color="primary" class="example">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="spacer"></div>
+      <button mat-icon-button>
+        <mat-icon>person</mat-icon>
+      </button>
+      <button mat-icon-button (click)="showNotif = !showNotif">
+        <mat-icon [matBadge]="showNotif ? 2 : ''" matBadgeColor="warn">chat</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Menu">
+        <mat-icon>more_vert </mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="toolbar-title">Example Toolbar</span>
+      <div class="spacer"></div>
+      <button mat-mini-fab style="margin-top: 56px; margin-right: 4px">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-fab style="margin-top: 56px">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<button mat-raised-button (click)="menuTrigger.toggleMenu()">Toggle Menu</button>
+
+<style>
+
+  .toolbar-title {
+    margin-left: 40px;
+    flex: 1 1 0;
+  }
+
+  .spacer {
+    flex: 1 1 0;
+  }
+
+  .examples-container {
+    max-width: 80%;
+    margin: 40px auto;
+  }
+  .example {
+    margin: 40px 0;
+  }
+</style>
+

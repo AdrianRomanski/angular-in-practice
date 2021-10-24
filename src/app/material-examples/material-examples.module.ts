@@ -17,10 +17,25 @@ import { TableExampleComponent } from './pages/table-example/table-example.compo
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { AddressformExampleComponent } from './pages/addressform-example/addressform-example.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IndicatorsExampleComponent } from './indicators-example/indicators-example.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { InteractionsExampleComponent } from './interactions-example/interactions-example.component';
+import { ToolbarsExampleComponent } from './toolbars-example/toolbars-example.component';
+import { ListsExampleComponent } from './pages/lists-example/lists-example.component';
+import { SimpleContactsListComponent } from './simple-contacts-list/simple-contacts-list.component';
+import { AppContactDetailsListComponent } from './app-contact-details-list/app-contact-details-list.component';
+import { ContactSelectionListComponent } from './contact-selection-list/contact-selection-list.component';
 
 
 @NgModule({
-  declarations: [LayoutComponent, DashboardExampleComponent, TableExampleComponent],
+  declarations: [LayoutComponent, DashboardExampleComponent,
+    TableExampleComponent, AddressformExampleComponent, IndicatorsExampleComponent, InteractionsExampleComponent, ToolbarsExampleComponent, ListsExampleComponent, SimpleContactsListComponent, AppContactDetailsListComponent, ContactSelectionListComponent],
   imports: [
     CommonModule,
     MaterialExamplesRoutingModule,
@@ -35,7 +50,14 @@ import { MatSortModule } from '@angular/material/sort';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatBadgeModule,
+    MatTooltipModule,
+    MatToolbarModule
   ]
 })
 export class MaterialExamplesModule { }
