@@ -21,7 +21,7 @@ import { AddressformExampleComponent } from './pages/addressform-example/address
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { IndicatorsExampleComponent } from './indicators-example/indicators-example.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -31,15 +31,26 @@ import { ListsExampleComponent } from './pages/lists-example/lists-example.compo
 import { SimpleContactsListComponent } from './simple-contacts-list/simple-contacts-list.component';
 import { AppContactDetailsListComponent } from './app-contact-details-list/app-contact-details-list.component';
 import { ContactSelectionListComponent } from './contact-selection-list/contact-selection-list.component';
+import { FormsExampleComponent } from './forms-example/forms-example.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FormExtrasComponent } from './form-extras/form-extras.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
   declarations: [LayoutComponent, DashboardExampleComponent,
-    TableExampleComponent, AddressformExampleComponent, IndicatorsExampleComponent, InteractionsExampleComponent, ToolbarsExampleComponent, ListsExampleComponent, SimpleContactsListComponent, AppContactDetailsListComponent, ContactSelectionListComponent],
+    TableExampleComponent, AddressformExampleComponent, IndicatorsExampleComponent,
+    InteractionsExampleComponent, ToolbarsExampleComponent, ListsExampleComponent,
+    SimpleContactsListComponent, AppContactDetailsListComponent, ContactSelectionListComponent,
+    FormsExampleComponent,
+    FormExtrasComponent],
   imports: [
     CommonModule,
     MaterialExamplesRoutingModule,
     LayoutModule,
+    MatCheckboxModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -57,7 +68,11 @@ import { ContactSelectionListComponent } from './contact-selection-list/contact-
     ReactiveFormsModule,
     MatBadgeModule,
     MatTooltipModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatAutocompleteModule
   ]
 })
 export class MaterialExamplesModule { }

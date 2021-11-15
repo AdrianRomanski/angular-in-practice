@@ -8,6 +8,8 @@ import {IndicatorsExampleComponent} from './indicators-example/indicators-exampl
 import {InteractionsExampleComponent} from './interactions-example/interactions-example.component';
 import {ToolbarsExampleComponent} from './toolbars-example/toolbars-example.component';
 import {ListsExampleComponent} from './pages/lists-example/lists-example.component';
+import {FormsExampleComponent} from './forms-example/forms-example.component';
+import {FormExtrasComponent} from './form-extras/form-extras.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,12 @@ const routes: Routes = [
       },
       {
         path: 'lists', component: ListsExampleComponent
+      },
+      {
+        path: 'forms', component: FormsExampleComponent
+      },
+      {
+        path: 'forms-extras', component: FormExtrasComponent
       }
     ]
   }

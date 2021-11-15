@@ -1,0 +1,118 @@
+<form [formGroup]="taskForm" (ngSubmit)="createTask()">
+
+  <div class="examples-container">
+
+    <h3 class="mat-display-3">Create Task</h3>
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="Short description" formControlName="title"
+             [errorStateMatcher]="errorMatcher">
+      <mat-hint align="start">Keep it short!</mat-hint>
+      <mat-error *ngIf="taskForm.get('title')?.hasError('required')">Field is required</mat-error>
+      <mat-error *ngIf="taskForm.get('title')?.hasError('minlength')">Not too short</mat-error>
+      <mat-error *ngIf="taskForm.get('title')?.hasError('pattern')">Must start with a letter</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select matInput placeholder="Type" formControlName="type">
+        <mat-option value="task">Task</mat-option>
+        <mat-option value="issue">Issue</mat-option>
+        <mat-option value="bug">Bug Report</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <div class="options-container">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Due date" formControlName="duedate"
+                 (dateInput)="handleDate($event)" (dateChange)="handleDate($event)"
+                 [matDatepicker]="duedate_picker">
+          <mat-datepicker-toggle matSuffix [for]="duedate_picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #duedate_picker (yearSelected)="handleDate($event)" [touchUi]="isMobile | async"
+                          (monthSelected)="handleDate($event)">
+          </mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <h5>Priority</h5>
+        <mat-radio-group formControlName="priotity">
+          <mat-radio-button color="primary" value="low">Low</mat-radio-button>
+          <mat-radio-button color="primary" value="medium">Medium</mat-radio-button>
+          <mat-radio-button color="primary" value="high">High</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div>
+        <h5>Options</h5>
+        <div formGroupName="options">
+          <mat-checkbox formControlName="billable" color="primary">Billable</mat-checkbox>
+          <mat-checkbox formControlName="blocker" color="primary">Blocker</mat-checkbox>
+          <mat-checkbox formControlName="technical" color="primary">Technical</mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <mat-form-field>
+      <textarea placeholder="Description" matInput cdkTextareaAutosize formControlName="description"></textarea>
+
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-button>Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Create Task</button>
+    </div>
+
+  </div>
+</form>
+
+<style>
+  .spacer {
+    flex: 1 1 0%;
+  }
+
+  mat-error:not(:last-child) {
+    display: none;
+  }
+
+  .stretch {
+    flex: 1 1 100%;
+  }
+
+  .form-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .options-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  .example {
+    margin: 30px 0;
+  }
+
+  mat-radio-button~mat-radio-button,
+  mat-checkbox~mat-checkbox {
+    margin-left: 16px;
+  }
+
+  ::ng-deep .datepicker-review-day div {
+    color: red !important;
+  }
+
+  .examples-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 80%;
+    margin: 40px auto;
+  }
+</style>
