@@ -37,6 +37,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { FormExtrasComponent } from './form-extras/form-extras.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 
 
 @NgModule({
@@ -45,7 +46,12 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     InteractionsExampleComponent, ToolbarsExampleComponent, ListsExampleComponent,
     SimpleContactsListComponent, AppContactDetailsListComponent, ContactSelectionListComponent,
     FormsExampleComponent,
-    FormExtrasComponent],
+    FormExtrasComponent,
+    MainNavigationComponent],
+  exports: [
+    ContactSelectionListComponent,
+    AppContactDetailsListComponent
+  ],
   imports: [
     CommonModule,
     MaterialExamplesRoutingModule,
